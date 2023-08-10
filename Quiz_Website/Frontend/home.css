@@ -1,0 +1,148 @@
+.full-page {
+  width: 100%;
+  height: 100%;
+  
+}
+
+.headernav {
+  position: fixed;
+  z-index: 1;
+  /* background: linear-gradient(to bottom, #141b29, #0c111b 300px); */
+  width: 100%;
+}
+
+.navbar-brand {
+  font-size: 50px !important;
+  color: white !important;
+  text-shadow: 0 0 10px rgba(244, 126, 187, 0.3) !important;
+  font-family: 'Dancing script', cursive !important;
+  padding-top: 0px !important;
+  padding-left: 30px !important;
+  padding-right: 0px !important;
+}
+
+.nav-link {
+  font-size: 18px !important;
+  color: rgb(244, 181, 223) !important;
+  padding-right: 50px !important;
+
+
+}
+
+ul li .nav-link {
+  position: relative;
+  display: block;
+}
+
+
+ul li .nav-link::after {
+  position: absolute;
+  content: "";
+  width: 50%;
+  height: 2px;
+  top: 100%;
+  left: 0;
+  background: rgb(244, 181, 223);;
+  transition: transform 0.5s;
+  transform: scaleX(0);
+  transform-origin: right;
+}
+
+ul li .nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+
+
+
+.img{
+  background-image: url(./background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 640px;
+  width: 1396px;
+
+}
+
+
+
+.home{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-content{
+  max-width: 600px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+.home-content h1{
+  font-size: 78px;
+  font-weight: 700;
+  color: rgb(155, 37, 112);
+  text-shadow: 0 0 10px rgba(244, 126, 187, 0.3);
+  border: white;
+}
+
+.home-content p {
+  font-size: 16px;
+  text-align: center;
+  color: rgb(155, 37, 112);
+  text-shadow: 0 0 10px rgba(244, 126, 187, 0.3);
+  margin-bottom: 30px;
+}
+
+
+.start{
+  outline: solid 1px white ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.form{
+  /* background-color: aliceblue; */
+  position: absolute;
+  margin-top: 100px;
+  margin-left: 35%;
+  color: white;
+height: 450px;
+  text-align: center;
+  backdrop-filter: blur(20px);
+  border: white 1px solid;
+}
+
+
+/* Start Quiz */
+
+.img1{
+  background-image: url(./background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 2000px;
+  width: 100%;
+
+}
+
+
+.form1{
+  /* background-color: aliceblue; */
+  position: absolute;
+  margin-top: 100px;
+  margin-left: 35%;
+  color: white;
+height: 450px;
+  text-align: center;
+  backdrop-filter: blur(20px);
+  border: white 1px solid;
+}

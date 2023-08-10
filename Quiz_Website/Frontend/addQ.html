@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./home.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chilanka&family=Dancing+Script:wght@700&display=swap"
+        rel="stylesheet">
+       
+</head>
+
+<body>
+
+    <div class="full-page">
+
+        <div class='headernav'>
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand">Quiz</a>
+                    <header>
+                        <div class="header" id="navbarNav">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="home.html">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./addQ.html">Add Que</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./createQuiz.html">Create Quiz</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./try.html">Start Quiz</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="Login.html">Login</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </header>
+                </div>
+            </nav>
+
+        </div>
+    </div>
+
+     <div class="img"> 
+
+
+
+   
+
+     
+
+        <div class="form">
+            
+                <fieldset>
+                    <h3>Add Questions</h3>
+                    <br>
+               <label for="n"><b>Question Title:</b></label>
+            <input type="text" id="title" required>
+            <br><br>
+            <label for="o"><b>Option 1 :</b></label>
+            <input type="text" id="option1" required>
+            <br><br>
+            <label for="t"><b>Option 2 :</b></label>
+            <input type="text" id="option2" required>
+            <br><br>
+            <label for="tt"><b>Option 3 :</b></label>
+            <input type="text" id="option3" required>
+            <br><br>
+            <label for="f"><b>Option 4 :</b></label>
+            <input type="text" id="option4" required>
+            <br><br>
+            <label for="ff"><b>Right Answer :</b></label>
+            <input type="text" id="right" required>
+            <br><br>
+            <label for="s"><b>category :</b></label>
+            <input type="text" id="category" required>
+            <br>
+            <br>
+
+            <button onclick="getValue()">Submit</button>
+        </fieldset>
+    
+     </div>
+
+ </div> 
+
+
+    <script>
+        var quizId = 7;
+        function getValue() {
+
+            let questionTitle = document.getElementById("title").value;
+            console.log("title : ", questionTitle);
+
+            let option1 = document.getElementById("option1").value;
+            console.log("option1 : ", option1);
+
+            let option2 = document.getElementById("option2").value;
+            console.log("option2 : ", option2);
+
+            let option3 = document.getElementById("option3").value;
+            console.log("option3 : ", option3);
+
+            let option4 = document.getElementById("option4").value;
+            console.log("option4 : ", option4);
+
+            let rightAnswer = document.getElementById("right").value;
+            console.log("right : ", rightAnswer);
+
+            let category = document.getElementById("category").value;
+            console.log("category : ", category);
+
+
+            var obj = {
+
+
+
+                "questionTitle": questionTitle,
+                "option1": option1,
+                "option2": option2,
+                "option3": option3,
+                "option4": option4,
+                "rightAnswer": rightAnswer,
+                "category": category,
+
+
+            };
+            console.log("object", obj);
+
+            fetch('http://localhost:8080/question/add', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(obj),
+                cache: 'default'
+            })
+                .then(data => {
+                    //handle data
+                    console.log("data : ", data);
+                    alert("Question Add Successfully..")
+                })
+                .catch(error => {
+                    console.error("error : ", error);
+                    //handle error
+                });
+        }
+
+
+
+
+        fetch('http://localhost:8080/question/allQuestions', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(obj),
+            cache: 'default'
+        })
+            .then(data => {
+                //handle data
+                console.log("data : ", data);
+            })
+            .catch(error => {
+                console.error("error : ", error);
+                //handle error
+            });
+
+
+    </script>
+
+
+</body>
+
+</html>
